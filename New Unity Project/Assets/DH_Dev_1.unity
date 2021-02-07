@@ -308,6 +308,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
+--- !u!1 &173498947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173498949}
+  - component: {fileID: 173498948}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &173498948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173498947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa9dbe06fa8437429d6ed9ac32ca451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showWinScreen: 0
+  labelText: Collect all 4 items and win your freedm!
+  maxItems: 1
+--- !u!4 &173498949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173498947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.990021, y: 1.4180834, z: -12.701154}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &224079431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,7 +1710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 970584065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1818,6 +1864,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 75
+  jumpVelocity: 5
+  distanceToGround: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  bullet: {fileID: 3622792806854373407, guid: 0e81d6de634483c499d2b0b514a22e8c, type: 3}
+  bulletSpeed: 100
 --- !u!54 &987571596
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1832,7 +1885,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &987571597
 CapsuleCollider:
@@ -2014,7 +2067,7 @@ GameObject:
   - component: {fileID: 1115599595}
   - component: {fileID: 1115599594}
   - component: {fileID: 1115599593}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2294,7 +2347,7 @@ GameObject:
   - component: {fileID: 1481035085}
   - component: {fileID: 1481035084}
   - component: {fileID: 1481035083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2981,7 +3034,7 @@ GameObject:
   - component: {fileID: 1803731812}
   - component: {fileID: 1803731811}
   - component: {fileID: 1803731810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3261,7 +3314,7 @@ GameObject:
   - component: {fileID: 2034261962}
   - component: {fileID: 2034261961}
   - component: {fileID: 2034261960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3354,7 +3407,7 @@ GameObject:
   - component: {fileID: 2119628189}
   - component: {fileID: 2119628188}
   - component: {fileID: 2119628187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3502,5 +3555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 8747531530784368116, guid: 27368e00c7d5ec34abfd0db8b7f07a1a,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 173498948}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27368e00c7d5ec34abfd0db8b7f07a1a, type: 3}

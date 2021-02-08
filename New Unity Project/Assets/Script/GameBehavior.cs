@@ -7,7 +7,7 @@ public class GameBehavior : MonoBehaviour
 {
     public bool showWinScreen = false;
     public string labelText = "Collect all 4 items and win your freedom!";
-    public int maxItems = 4;
+    public int maxItems = 1;
 
     private int _itemsCollected = 0;
     public int Items

@@ -17,6 +17,7 @@ public class PlayerBehavior : MonoBehaviour
     private float vInput;
     private float hInput;
     private Rigidbody _rb;
+    private GameBehavior _gameManager;
 
     //3 
     private CapsuleCollider _col;
@@ -26,6 +27,8 @@ public class PlayerBehavior : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _col = GetComponent<CapsuleCollider>();
+
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameBehavior>();
     }
 
     // Update is called once per frame
@@ -63,7 +66,13 @@ public class PlayerBehavior : MonoBehaviour
             bulletRB.velocity = this.transform.forward *
                 bulletSpeed;
         }
-       
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "Enemy")
+        {
+            _gameManager.HP -= 1;
+        }
     }
     private bool IsGrounded()
     {

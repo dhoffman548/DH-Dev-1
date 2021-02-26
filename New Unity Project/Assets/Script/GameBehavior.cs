@@ -2,9 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using CustomExtensions;
 
-public class GameBehavior : MonoBehaviour
+public class GameBehavior : MonoBehaviour, IManager
 {
+    private string _state;
+
+    public string State
+    {
+        get { return _state;  }
+        set { _state = value; }
+    }
+    void Start()
+    {
+        Initialize();
+    }
+    public void Initialize()
+    {
+        _state = "Manager initalized..";
+        _state.FancyDebug();
+        Debug.Log(_state);
+    }
     void ResetLevel()
     {
         SceneManager.LoadScene(0);
@@ -65,33 +83,17 @@ public class GameBehavior : MonoBehaviour
         if (showWinScreen)
         {
             if (GUI.Button(new Rect(Screen.width / 2 - 100,
-                Screen.height / 2 - 50, 200, 100), "YOU WON!")) ;
+                Screen.height / 2 - 50, 200, 100), "YOU WON!"))
             {
-                SceneManager.LoadScene(0);
-
-                Time.timeScale = 1.0f;
-                ResetLevel();
+                Utilities.RestartLevel(0);
             }
         }
         if(showLossScreen)
         {
             if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 50, 200, 100), "You lose..."))
             {
-                SceneManager.LoadScene(0);
-                Time.timeScale = 1.0f;
-                ResetLevel();
+                Utilities.RestartLevel();
             }
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

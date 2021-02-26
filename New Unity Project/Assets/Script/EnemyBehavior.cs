@@ -72,7 +72,7 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player") ;
+        if (other.name == "Player")
         {
 
             agent.destination = player.position;

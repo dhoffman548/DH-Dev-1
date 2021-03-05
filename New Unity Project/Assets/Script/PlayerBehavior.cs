@@ -12,6 +12,8 @@ public class PlayerBehavior : MonoBehaviour
     public LayerMask groundLayer;
     public GameObject bullet;
     public float bulletSpeed = 100f;
+    public delegate void JumpingEvent();
+    public event JumpingEvent playerJump;
 
     // 2
     private float vInput;
@@ -56,6 +58,7 @@ public class PlayerBehavior : MonoBehaviour
         _rb.MoveRotation(_rb.rotation * angleRot);
         if (Input.GetKeyDown(KeyCode.Space))
             _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+        playerJump();
         if (Input.GetMouseButtonDown(0))
         {
             GameObject newBullet = Instantiate(bullet,

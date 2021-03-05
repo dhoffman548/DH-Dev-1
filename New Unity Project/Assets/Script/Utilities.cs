@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public static class Utilities
 {
     public static int playerDeaths = 0;
+    private static int sceneIndex;
 
     public static string UpdateDeathCount(ref int countReference)
     {
@@ -16,6 +17,10 @@ public static class Utilities
 
     public static void RestartLevel()
     {
+        if(sceneIndex < 0)
+        {
+            throw new System.ArgumentException("Scene index cannot be negative");
+        }
         SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
 
